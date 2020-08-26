@@ -8,9 +8,11 @@
 	$password = "";
 	$database = "dbUser";
 	$mysqli = mysqli_connect($server, $username, $password, $database);
+	//directory where images are saved
+	$dit = "gallery/";
 
 	$email = isset($_POST["loginEmail"]) ? $_POST["loginEmail"] : false;
-	$pass = isset($_POST["loginPass"]) ? $_POST["loginPass"] : false;	
+	$pass = isset($_POST["loginPass"]) ? $_POST["loginPass"] : false;
 	// if email and/or pass POST values are set, set the variables to those values, otherwise make them false
 ?>
 
@@ -21,7 +23,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="style.css" />
 	<meta charset="utf-8" />
-	<meta name="author" content="Name Surname">
+	<meta name="author" content="Johannes Wolmarans">
 	<!-- Replace Name Surname with your name and surname -->
 </head>
 <body>
@@ -49,11 +51,13 @@
 									<td>" . $row['birthday'] . "</td>
 								<tr>
 							</table>";
-				
-					echo 	"<form>
+
+					echo 	"<form action='login.php' method='post' enctype='multipart/form-data'>
 								<div class='form-group'>
 									<input type='file' class='form-control' name='picToUpload' id='picToUpload' /><br/>
-									<input type='submit' class='btn btn-standard' value='Upload Image' name='submit' />
+									<input type='submit' class='btn btn-dark' value='Upload Image' name='submit' />
+									<input id='loginEmail' name='loginEmail' type='hidden' value='".$email."'>
+									<input id='loginPass' name='loginPass' type='hidden' value='".$pass."'>
 								</div>
 						  	</form>";
 				}
@@ -62,7 +66,7 @@
 	  							You are not registered on this site!
 	  						</div>';
 				}
-			} 
+			}
 			else{
 				echo 	'<div class="alert alert-danger mt-3" role="alert">
 	  						Could not log you in

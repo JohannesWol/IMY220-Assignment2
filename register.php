@@ -25,14 +25,14 @@
 <head>
 	<meta charset="utf-8" />
 	<title>IMY 220 - Assignment 2</title>
-	<meta name="author" content="Name Surname">
+	<meta name="author" content="Johannes Wolmarans">
 	<!-- Replace Name Surname with your name and surname -->
-	
+
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <body>
 	<div class="container">
-		<?php 
+		<?php
 			if($res)
 				echo '<div class="alert alert-primary mt-3" role="alert">
   						The account has been created
